@@ -1,6 +1,6 @@
 import CardSlider from '../../Components/Reusable/CardSlider';
 import React, { useState, useEffect, useMemo, useRef } from "react"; // ADDED useRef
-import '../../Styles/SuperAdmin/PackageManagement.css';
+// import '../../Styles/SuperAdmin/PackageManagement.css';
 import institutionsData from '../dummy.json';
 // -----------------------
 
@@ -605,5 +605,6 @@ const Programme = () => {
         </div>
     );
 };
+
 
 export default Programme;
