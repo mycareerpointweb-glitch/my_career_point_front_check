@@ -1,0 +1,142 @@
+/* ========================================
+   StudentReportAnalytics Custom Styles
+   Uses variables from :root in index.css
+   ======================================== */
+
+.STRA_subject-cards-grid {
+    display: grid;
+    /* 2 columns for smaller screens, 5 for desktop */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Using a specific variable for gap, e.g., --space-4 (1rem) */
+    gap: var(--space-4); 
+}
+
+.STRA_subject-card {
+    /* Style for the card background and hover effect */
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-200);
+    /* Transition from index.css */
+    transition: all var(--transition-base); 
+}
+
+.STRA_subject-card:hover {
+    /* Subtle hover effect */
+    border-color: var(--brand-pink-light);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.STRA_subject-card-active {
+    /* Active subject card styling */
+    border-color: var(--brand-pink);
+    background-color: var(--brand-pink-light);
+    box-shadow: var(--shadow-lg);
+}
+
+.STRA_subject-card-active h5 {
+    /* Active card text color */
+    color: var(--brand-pink-dark);
+}
+
+/* --- Tab Navigation --- */
+.STRA_tabs-nav {
+    display: flex;
+    /* Using a specific variable for gap, e.g., --space-3 (0.75rem) */
+    gap: var(--space-3); 
+    border-bottom: 2px solid var(--color-gray-200);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.STRA_tab-btn {
+    /* Overriding default button font size to match small/medium tabs */
+    font-size: var(--font-size-sm); 
+    padding: var(--space-2) var(--space-5);
+}
+
+/* --- Table Styling --- */
+.STRA_table-responsive {
+    /* Ensures the table is scrollable on small screens */
+    overflow-x: auto;
+}
+
+.STRA_report-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Default table text color */
+    color: var(--color-gray-800); 
+}
+
+.STRA_report-table th,
+.STRA_report-table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.STRA_report-table th {
+    /* Table header styles */
+    background-color: var(--color-gray-100);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.STRA_report-table tbody tr:hover {
+    /* Subtle row hover effect */
+    background-color: var(--color-gray-50);
+}
+
+/* --- Status Badges --- */
+.STRA_status-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+}
+
+/* Test Statuses */
+.STRA_status-badge.pass {
+    background-color: var(--color-success-light);
+    color: var(--color-success-dark);
+}
+
+.STRA_status-badge.fail {
+    background-color: var(--color-error-light);
+    color: var(--color-error-dark);
+}
+
+/* Assignment Statuses */
+.STRA_status-badge.completed {
+    background-color: var(--color-info-light);
+    color: var(--color-info-dark);
+}
+
+.STRA_status-badge.pendingreview {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning-dark);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 640px) {
+    .STRA_subject-cards-grid {
+        /* On mobile, use only 2 columns for better tap target size */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .STRA_report-table th,
+    .STRA_report-table td {
+        /* Reduce padding on smaller screens */
+        padding: var(--space-2);
+    }
+    
+    /* Center text alignments for numeric columns on mobile */
+    .STRA_report-table td:nth-child(3), /* Total Marks */
+    .STRA_report-table td:nth-child(4) { /* Marks Obtained */
+        text-align: center;
+    }
+}

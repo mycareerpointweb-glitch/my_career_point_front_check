@@ -1,0 +1,338 @@
+/* ===============================================
+   DYNAMIC FORM STYLING - Using Global Variables
+   =============================================== */
+
+/* --- Modal Styling --- */
+.DFORM_Modal_Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use high z-index (higher than z-modal) */
+    z-index: var(--z-modal); 
+}
+
+.DFORM_Modal_Content {
+    background: var(--color-white);
+    padding: var(--space-8); /* 30px is roughly space-8 (32px) */
+    border-radius: var(--radius-lg); /* 12px */
+    box-shadow: var(--shadow-xl); /* Use a strong shadow */
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(1);
+    transition: transform var(--transition-base) ease-out;
+}
+
+.DFORM_Modal_Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6); /* 25px is roughly space-6 (24px) */
+    border-bottom: 1px solid var(--color-gray-300);
+    padding-bottom: var(--space-3); 
+}
+
+.DFORM_Modal_Title {
+    margin: 0;
+    color: var(--color-gray-900);
+    /* Use h4 size */
+    font-size: var(--font-size-xl); 
+}
+
+.DFORM_Modal_Close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-2xl); /* 1.8rem */
+    color: var(--color-gray-500);
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+.DFORM_Modal_Close:hover {
+    color: var(--color-gray-700);
+}
+
+/* --- Form Layout (Uses Global Flex & Gap) --- */
+.DFORM_Form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5); /* 20px */
+}
+
+.DFORM_Form_Field {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive Column Logic */
+.DFORM_Column_2 {
+    /* 50% width minus half of the gap (20px/2 = 10px) */
+    width: calc(50% - 10px); 
+}
+
+.DFORM_Column_1 {
+    width: 100%;
+}
+
+
+/* --- Field Styling (Adopts index.css input styles) --- */
+/* The base input styles are already defined globally. We mostly adjust colors/spacing here if needed. */
+.DFORM_Label {
+    /* Replicate the global label style for consistency */
+    display: block;
+    margin-bottom: var(--space-2); 
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+}
+
+.DFORM_Input_Text,
+.DFORM_Input_Number,
+.DFORM_Input_Date,
+.DFORM_Input_Time {
+    /* These styles already exist in index.css, only adding padding explicitly for full consistency */
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+    /* Use global transition */
+    transition: border-color var(--transition-base), box-shadow var(--transition-base); 
+}
+
+/* Focus styles from index.css are automatically applied via input:focus selector */
+
+.DFORM_Input_File {
+    padding-top: var(--space-1);
+}
+
+.DFORM_Field_Description {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+}
+
+.DFORM_Field_Hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+    display: block;
+    margin-top: var(--space-1);
+}
+
+.DFORM_Required_Asterisk {
+    /* Use error color */
+    color: var(--color-error); 
+    margin-left: 2px;
+}
+
+.DFORM_Field_Error {
+    /* Use error color */
+    color: var(--color-error); 
+    font-size: var(--font-size-xs);
+    display: block;
+    margin-top: var(--space-1);
+}
+
+/* --- Display Box --- */
+.DFORM_DisplayBox {
+    padding: var(--space-3);
+    background-color: var(--color-gray-100); 
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    color: var(--color-gray-700);
+}
+
+.DFORM_DisplayBox_Icon {
+    margin-right: var(--space-3);
+    font-size: var(--font-size-lg);
+}
+
+/* --- Custom Select and Pills --- */
+.DFORM_Custom_Select_Container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+}
+
+.DFORM_Pills_Display_Container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+/* Pill for DISPLAYING selected items (removable) */
+.DFORM_Pill {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+    white-space: nowrap;
+}
+
+.DFORM_Pill_Remove {
+    background: none;
+    border: none;
+    color: var(--color-white);
+    margin-left: var(--space-2);
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+}
+.DFORM_Pill_Remove:hover {
+    opacity: 1;
+}
+
+/* Pill for SELECTABLE options */
+.DFORM_SelectablePill {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid;
+    user-select: none;
+}
+
+/* Color Classes (Mapping to Global Variables) */
+.DFORM_Pill--pink,
+.DFORM_SelectablePill--pink {
+    background-color: var(--brand-pink);
+    border-color: var(--brand-pink);
+    color: var(--color-white);
+}
+
+.DFORM_SelectablePill--pink {
+    background-color: var(--brand-pink-light); /* Lighter background for unselected */
+    color: var(--brand-pink-dark);
+}
+
+.DFORM_Pill--default,
+.DFORM_SelectablePill--default {
+    background-color: var(--color-gray-600);
+    border-color: var(--color-gray-600);
+    color: var(--color-white);
+}
+
+.DFORM_SelectablePill--default {
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-700);
+    border-color: var(--color-gray-300);
+}
+
+/* Selected State for Selectable Pills - Using Brand Pink */
+.DFORM_SelectablePill--Selected {
+    background-color: var(--brand-pink); 
+    border-color: var(--brand-pink);
+    color: var(--color-white);
+    font-weight: var(--font-weight-semibold);
+}
+.DFORM_SelectablePill:hover:not(.DFORM_SelectablePill--Selected) {
+    background-color: var(--color-gray-200);
+}
+
+/* --- File Upload Display --- */
+.DFORM_CurrentFile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-1);
+    background-color: var(--color-gray-100); /* Use a light gray */
+    border-bottom: 1px dashed var(--color-gray-300);
+    margin-bottom: var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+.DFORM_Download_Btn {
+    text-decoration: none;
+    color: var(--brand-pink); /* Use brand color */
+    font-size: var(--font-size-sm);
+    margin-left: var(--space-3);
+    transition: color var(--transition-fast);
+}
+.DFORM_Download_Btn:hover {
+    color: var(--brand-pink-dark);
+}
+
+/* --- Buttons and Actions --- */
+.DFORM_Form_Actions {
+    margin-top: var(--space-8); /* 30px is roughly space-8 (32px) */
+    text-align: right;
+}
+
+.DFORM_Btn {
+    /* Adopt the styles of the base .btn class from index.css for consistency */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.DFORM_Btn_Primary {
+    /* Use btn-primary styles */
+    background-color: var(--brand-orange) ;
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+.DFORM_Btn_Primary:hover:not(:disabled) {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.DFORM_Btn_Secondary {
+    /* Use outline-like style */
+    background-color: var(--color-white);
+    color: var(--color-gray-700);
+    border: 1px solid var(--color-gray-300);
+    margin-right: var(--space-4); 
+}
+.DFORM_Btn_Secondary:hover:not(:disabled) {
+    background-color: var(--color-gray-100);
+    border-color: var(--color-gray-400);
+}
+
+/* --- Confirmation Box --- */
+.DFORM_Confirmation_Box {
+    text-align: center;
+    max-width: 400px;
+    padding: var(--space-5);
+}
+
+.DFORM_Confirmation_Title {
+    color: var(--color-gray-900);
+    margin-top: 0;
+}
+
+.DFORM_Confirmation_Message {
+    margin: var(--space-5) 0 var(--space-8);
+    font-size: var(--font-size-lg);
+}
+
+.DFORM_Confirmation_Actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+}
