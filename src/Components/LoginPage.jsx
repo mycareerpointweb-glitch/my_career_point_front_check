@@ -36,8 +36,8 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       // ✅ UPDATED BACKEND URL HERE
-      // const backendUrl = 'https://my-career-point-updated.onrender.com';
-      const backendUrl = 'http://localhost:5000';
+      const backendUrl = 'https://my-career-point-updated.onrender.com';
+      // const backendUrl = 'http://localhost:5000';
       const response = await fetch(`${backendUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -237,5 +237,6 @@ const LoginPage = () => {
     </div>
   );
 };
+
 
 export default LoginPage;
