@@ -49,7 +49,7 @@ import CourseManagement from "./SuperAdmin/CourseAndManagement";
 import AssignmentManagement from "./SuperAdmin/Assignments/Assignment";
 import StudentMaterial from "./Student/StudentMaterial";
 import DynamicProfile from "./Reusable/DynamicProfile";
-import Practise from "./Reusable/practise";
+// import Practise from "./Reusable/practise";
 import MarksManagement from "./SuperAdmin/MarksManagement";
 import TimetablePage from "./SuperAdmin/Timetable";
 import TeacherCoursePage from "./Teacher/TeacherCourseCompletion";
@@ -144,7 +144,7 @@ console.log("User Data in Dashboard:", userData);
       { id: "Attendances", label: "Attendance", icon: FiCheckSquare },
       { id: "GradesReports", label: "Grades & Reports", icon: FiBarChart2 },
       { id: "Profile", label: "Profile", icon: FiUser },
-      { id: "Practise", label: "Practise", icon: FiUser },
+      // { id: "Practise", label: "Practise", icon: FiUser },
     ],
   };
 
@@ -212,8 +212,8 @@ console.log("User Data in Dashboard:", userData);
         return <MarksManagement/>;
       case "Reports & Analytics":
         return <ReportsAnalytics />;
-      case "Practise":
-        return < Practise/>;
+      // case "Practise":
+      //   return < Practise/>;
       case "Institutions":
         return <InstitutionsDashboard />;
       case "Profile":
@@ -447,5 +447,6 @@ const PlaceholderContent = ({ title }) => (
     </div>
   </div>
 );
+
 
 export default Dashboard;
